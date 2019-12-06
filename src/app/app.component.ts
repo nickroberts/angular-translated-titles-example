@@ -8,7 +8,7 @@ import {
   NavigationCancel,
   NavigationError
 } from "@angular/router";
-import { map, tap, filter, mergeMap } from "rxjs/operators";
+import { map, filter, mergeMap } from "rxjs/operators";
 import { Subscription } from "rxjs";
 
 import { TranslationService } from "angular-l10n";
@@ -31,9 +31,6 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.routerEventSubscription = this.router.events
       .pipe(
-        tap(event => {
-          console.log("event", event.constructor.name);
-        }),
         filter(event => event instanceof NavigationEnd),
         map(() => this.activatedRoute),
         map(route => {
