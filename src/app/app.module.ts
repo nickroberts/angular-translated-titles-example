@@ -52,7 +52,7 @@ const l10nConfig: L10nConfig = {
 export class InitConfig {
   constructor(private l10nLoader: L10nLoader) {}
   load() {
-    return this.l10nLoader.load();
+    return this.l10nLoader.load().then(() => console.log('AppModule: InitConfig: translations loaded'));
   }
 }
 

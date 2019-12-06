@@ -56,6 +56,7 @@ export class LazyModule {
   constructor(
     public l10nLoader: L10nLoader
   ) {
-    this.l10nLoader.load();
+    console.log('LazyModule: constructor')
+    this.l10nLoader.load().then(() => console.log('LazyModule: translations loaded'));
   }
 }
