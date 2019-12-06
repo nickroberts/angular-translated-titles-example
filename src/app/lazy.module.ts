@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 import {
   L10nConfig,
   L10nLoader,
@@ -7,11 +7,11 @@ import {
   LocalizationExtraModule,
   ProviderType,
   ISOCode
-} from 'angular-l10n';
+} from "angular-l10n";
 
-import { LazyRoutingModule } from './lazy-routing.module';
-import { LazyComponent } from './lazy.component';
-import { LazyChildComponent } from './lazy-child.component';
+import { LazyRoutingModule } from "./lazy-routing.module";
+import { LazyComponent } from "./lazy.component";
+import { LazyChildComponent } from "./lazy-child.component";
 
 const l10nConfig: L10nConfig = {
   translation: {
@@ -35,16 +35,13 @@ const l10nConfig: L10nConfig = {
       { type: ProviderType.Static, prefix: "./assets/l10n/lazy/" }
     ],
     caching: true,
-    composedKeySeparator: '.',
+    composedKeySeparator: ".",
     composedLanguage: [ISOCode.Language, ISOCode.Country]
   }
 };
 
 @NgModule({
-  declarations: [
-    LazyComponent,
-    LazyChildComponent
-  ],
+  declarations: [LazyComponent, LazyChildComponent],
   imports: [
     CommonModule,
     LazyRoutingModule,
@@ -53,10 +50,10 @@ const l10nConfig: L10nConfig = {
   ]
 })
 export class LazyModule {
-  constructor(
-    public l10nLoader: L10nLoader
-  ) {
-    console.log('LazyModule: constructor')
-    this.l10nLoader.load().then(() => console.log('LazyModule: translations loaded'));
+  constructor(public l10nLoader: L10nLoader) {
+    console.log("LazyModule: constructor");
+    this.l10nLoader
+      .load()
+      .then(() => console.log("LazyModule: translations loaded"));
   }
 }

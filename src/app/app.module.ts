@@ -1,7 +1,7 @@
 import { NgModule, APP_INITIALIZER, Injectable } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from "@angular/common/http";
 import {
   L10nConfig,
   L10nLoader,
@@ -13,7 +13,7 @@ import {
   ISOCode
 } from "angular-l10n";
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HelloComponent } from "./hello.component";
 
@@ -47,19 +47,19 @@ const l10nConfig: L10nConfig = {
   }
 };
 
-
 @Injectable()
 export class InitConfig {
   constructor(private l10nLoader: L10nLoader) {}
   load() {
-    return this.l10nLoader.load().then(() => console.log('AppModule: InitConfig: translations loaded'));
+    return this.l10nLoader
+      .load()
+      .then(() => console.log("AppModule: InitConfig: translations loaded"));
   }
 }
 
 export function initApp(initConfig: InitConfig) {
   return () => initConfig.load();
 }
-
 
 @NgModule({
   imports: [

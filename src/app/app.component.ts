@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { Title } from '@angular/platform-browser';
+import { Title } from "@angular/platform-browser";
 import {
   Router,
   ActivatedRoute,
@@ -32,7 +32,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.routerEventSubscription = this.router.events
       .pipe(
         tap(event => {
-          console.log('event', event.constructor.name)
+          console.log("event", event.constructor.name);
         }),
         filter(event => event instanceof NavigationEnd),
         map(() => this.activatedRoute),
